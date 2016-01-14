@@ -1204,8 +1204,13 @@ color
   visibility: hidden;
 }
 .article img {
+  width: 750px;
   max-width: 100%;
   margin: 0.5em auto;
+  -webkit-box-shadow: 0 0 2px 3px #ddd;
+  box-shadow: 0 0 2px 3px #ddd;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 @-webkit-keyframes cd-bounce-1 {
   0% {
