@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网页与手机浏览器的设想 | Kim Huang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="今天起得很早,应该不是起得早,而是睡不着!有了一些想法,很有趣是关于网页与手机浏览器之间的想法!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页与手机浏览器的设想">
+<meta property="og:url" content="http://blog.wjl8.cn/2016/01/24/将网页简单融入到手机应用/index.html">
+<meta property="og:site_name" content="Kim Huang's Blog">
+<meta property="og:description" content="今天起得很早,应该不是起得早,而是睡不着!有了一些想法,很有趣是关于网页与手机浏览器之间的想法!">
+<meta property="og:updated_time" content="2016-01-23T22:46:50.980Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网页与手机浏览器的设想">
+<meta name="twitter:description" content="今天起得很早,应该不是起得早,而是睡不着!有了一些想法,很有趣是关于网页与手机浏览器之间的想法!">
+  
+    <link rel="alternative" href="/atom.xml" title="Kim Huang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Kim Huang</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">创意源于自由!</p>
+        
+        
+        <form><input type="text" class="search" placeholder=" Search..."></form>
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/daohang/">网站导航</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:admin@wjl8.cn" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/" title="GitHub"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="http://wpa.qq.com/msgrd?V=3&uin=282658460&Menu=yes" title="QQ"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Mrakdown/" style="font-size: 10px;">Mrakdown</a> <a href="/tags/Yelee/" style="font-size: 10px;">Yelee</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 15.71px;">hexo</a> <a href="/tags/html/" style="font-size: 18.57px;">html</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/介绍/" style="font-size: 10px;">介绍</a> <a href="/tags/代码/" style="font-size: 10px;">代码</a> <a href="/tags/修改/" style="font-size: 10px;">修改</a> <a href="/tags/创意/" style="font-size: 10px;">创意</a> <a href="/tags/前段/" style="font-size: 14.29px;">前段</a> <a href="/tags/吐槽/" style="font-size: 12.86px;">吐槽</a> <a href="/tags/吐糟/" style="font-size: 10px;">吐糟</a> <a href="/tags/工作室/" style="font-size: 10px;">工作室</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/情感/" style="font-size: 12.86px;">情感</a> <a href="/tags/感悟/" style="font-size: 10px;">感悟</a> <a href="/tags/感悟，抒情/" style="font-size: 10px;">感悟，抒情</a> <a href="/tags/技术/" style="font-size: 17.14px;">技术</a> <a href="/tags/抒情/" style="font-size: 12.86px;">抒情</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/测试/" style="font-size: 11.43px;">测试</a> <a href="/tags/照片/" style="font-size: 10px;">照片</a> <a href="/tags/设想/" style="font-size: 11.43px;">设想</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/链接/" style="font-size: 10px;">链接</a> <a href="/tags/雨天/" style="font-size: 10px;">雨天</a> <a href="/tags/首次/" style="font-size: 10px;">首次</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.youge8.com/">KimStudio</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://bbs.wjl8.cn:100/">微俱乐吧</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.youge8.com/zxbj">Kim布局工具</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">喜欢前段的随心随意,酷爱后端的逻辑思维!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Kim Huang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/img/avatar.png" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Kim Huang</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">创意源于自由!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/daohang/">网站导航</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:admin@wjl8.cn" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/" title="GitHub"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="http://wpa.qq.com/msgrd?V=3&uin=282658460&Menu=yes" title="QQ"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-将网页简单融入到手机应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/将网页简单融入到手机应用/" class="article-date">
+      <time datetime="2016-01-23T22:14:09.000Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网页与手机浏览器的设想
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/吐槽/">吐槽</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>今天起得很早,应该不是起得早,而是睡不着!<br>有了一些想法,很有趣是关于<code>网页</code>与<code>手机浏览器</code>之间的想法!<br><a id="more"></a><br>其实这个想法是源于学习的<code>phonegap</code>这种手机应用开发环境,对比了一下,普通的手机浏览器并不可以把页面保存到手机的桌面,或者可以这样说:</p>
+<blockquote>
+<p>比方我很是喜欢一个网页上面的一些功能但是我要通过很复杂的过程才能放到我的桌面上,方便我每次调用<br>这种方法有很多种,但是我们都不喜欢,比如其中一个<a href="http://jingyan.baidu.com/article/9f7e7ec05a42c96f281554b3.html" target="_blank" rel="external">QQ浏览器标签添加至桌面</a><br>上面一个是文字教程再上个又图文的教程吧!这个是<a href="http://jingyan.baidu.com/article/5225f26b6bf43fe6fb09087c.html" target="_blank" rel="external">UC浏览器方法</a><br>苹果系统待查</p>
+</blockquote>
+<p>通过上面两个教程,在安卓手机我们可以发现,标签的识别仅仅是文字而已,没有一个浏览器支持用一行代码让我们把页面的切入点信息保存在这个只用一只手指输入信息的设备中,还有个一个小问题就是,图标还是本身的图标,而不是取而代之的页面本身带有的图标这样,就会有个问题,如果我的手机主题是一个没有文字提示的主题,只能靠图标识别应用,该怎么办?</p>
+<hr>
+<p>普通的手机浏览器还有一个与应用之间最大的区别就是,对应硬件本身的调用,手机浏览器可以毫不客气的说几乎是0,除了能调用摄像头,好像还真没见过其他的调用,哦,对了之前写过一些场景类的页面,还可以调用拨号界面,可以说是非常非常的单一,这就是网页无法在手机上得到很好应用的原因之一,因为网页本身不具备操纵硬件设备的能力!</p>
+<pre><code>开发一个具有多功能的应用的浏览器,是一个必然的需求,而网页的操作性远远要比原生应用要便捷许多,成本也低很多,网页的在线问题在今后的网络环境下应该是可以解决的,现在就是要看什么时候手机浏览器这个螃蟹谁来吃!这条链涉及到很多人的利益和技术问题,比如有人常常会拿来反驳的离线数据问题,其实也就刚刚所说的网络在线问题?这些都是硬件技术是否能跟得上的问题,暂时不在讨论范围内,因为5G的牛已经吹出来了,山沟沟里面了2G都没有,还5G?毕竟网络供应商这里已经有我太多不想说的利益关系!`牵一发则动全身`,一个革命都是很多险阻的!螃蟹谁来吃,谁就要冒这个限!巨头不敢吃,小船吃不动!这个才是我要吐槽问题.
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/01/24/将网页简单融入到手机应用/">网页与手机浏览器的设想</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Kim Huang 的个人博客">Kim Huang</a></p>
+        <p><span>发布时间:</span>2016年01月24日 - 06时14分</p>
+        <p><span>最后更新:</span>2016年01月24日 - 06时46分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/24/将网页简单融入到手机应用/" title="网页与手机浏览器的设想">http://blog.wjl8.cn/2016/01/24/将网页简单融入到手机应用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.wjl8.cn/2016/01/24/将网页简单融入到手机应用/　　作者: Kim Huang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/01/24/一个视频介绍的测试/">
+                    一个视频介绍的测试
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/01/23/虽然好用但是抽风gitcafe/">
+                    虽然好用但是抽风gitcafe
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/01/24/将网页简单融入到手机应用/" data-title="网页与手机浏览器的设想" data-url="http://blog.wjl8.cn/2016/01/24/将网页简单融入到手机应用/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"kimhuang"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://blog.wjl8.cn/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/01/24/一个视频介绍的测试/" title="上一篇: 一个视频介绍的测试">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/01/23/虽然好用但是抽风gitcafe/" title="下一篇: 虽然好用但是抽风gitcafe">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/31/当与很多麻烦事摆在面前/">当与很多麻烦事摆在面前时候</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/程序员的悲催/">程序员眼中的程序猿</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/远程字体库调用测试/">远程字体库调用测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/一个视频介绍的测试/">一个视频介绍的测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/将网页简单融入到手机应用/">网页与手机浏览器的设想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/23/虽然好用但是抽风gitcafe/">虽然好用但是抽风gitcafe</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/22/关于Git的一些命令/">关于Git的一些命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/21/hexo安装指令/">hexo安装指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/21/Kim站点快捷导航/">Kim站点快捷导航</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/关于 Yelee主题的一些修改/">关于 Yelee主题的一些修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/又是雨天伴思念/">又是雨天伴思念</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/再谈hexo的备份问题/">再谈hexo的备份问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/Markdown的一点语法/">Markdown的一点语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/19/win10下创建hxeo环境/">测试了win10下创建hxeo环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/18/跨平台网页用Bootstrap还是jQuery-Mobile/">跨平台网页用Bootstrap还是jQuery Mobile</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/17/一个不可否认的事实/">一个不可否认的事实</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/16/关于武侠类站点的一些设想/">关于武侠类站点的一些设想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/16/事情都会有它的解决办法/">关于武侠类站点的一些设想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/15/社区与BLOG与工作室/">社区与blog与studio网站的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/15/雨总是在你想它的时候它也想你/">雨和男人!</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/痛恨中国局域网/">痛恨中国局域网</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/开篇第一章/">开篇第一章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/git-my-blog-0114/">开篇第一章</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Kim Huang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Kim当前使用的主题">Yelee</a> by Kim Huang
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

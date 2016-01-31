@@ -1212,6 +1212,16 @@ color
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
+.article img:hover {
+  -webkit-transform: scale(1.02, 1.02);
+  -moz-transform: scale(1.02, 1.02);
+  -ms-transform: scale(1.02, 1.02);
+  transform: scale(1.02, 1.02);
+  -webkit-transition: 0.3s -webkit-transform;
+  -moz-transition: 0.3s -moz-transform;
+  -ms-transition: 0.3s -ms-transform;
+  transition: 0.3s transform;
+}
 @-webkit-keyframes cd-bounce-1 {
   0% {
     opacity: 0;
@@ -1969,14 +1979,14 @@ li:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: rgba(249,249,249,0.5);
+  background: rgba(51,51,51,0.85);
   margin: auto;
   padding: 0.35em 1.5em;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px;
   overflow: auto;
-  color: #4d4d4c;
+  color: #fff;
   line-height: 22.400000000000002px;
 }
 .article-entry .highlight .gutter pre,
@@ -2017,7 +2027,7 @@ li:hover {
 }
 .article-entry .highlight figcaption {
   font-size: 0.85em;
-  color: #8e908c;
+  color: #ccc;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -2044,7 +2054,7 @@ li:hover {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: rgba(249,249,249,0.5);
+  background: rgba(51,51,51,0.85);
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -2070,8 +2080,8 @@ li:hover {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: rgba(249,249,249,0.5);
-  color: #8e908c;
+  background: rgba(51,51,51,0.85);
+  color: #ccc;
   font: 0.85em "Lucida Grande", Verdana, "Helvetica Neue", Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
@@ -2086,15 +2096,15 @@ li:hover {
   text-decoration: underline;
 }
 .article-entry code {
-  color: #808080;
-  background: rgba(248,237,223,0.5);
+  color: #fff;
+  background: rgba(153,204,153,0.7);
   padding: 0.05em 0.3em;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 pre .comment,
 pre .title {
-  color: #8e908c;
+  color: #ccc;
 }
 pre .variable,
 pre .attribute,
