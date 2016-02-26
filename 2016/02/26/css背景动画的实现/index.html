@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css背景动画的实现 | Kim Huang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近写了一下按想法写了一些html的动画效果发现一个问题!jQuery是不支持动画背景颜色和文字颜色动画的,虽然能修改css属性来实现修改背景颜色,但是我想要的效果是动画效果!于是乎我在网络间游荡中获得了一个简单的处理方案!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css背景动画的实现">
+<meta property="og:url" content="http://blog.wjl8.cn/2016/02/26/css背景动画的实现/index.html">
+<meta property="og:site_name" content="Kim Huang's Blog">
+<meta property="og:description" content="最近写了一下按想法写了一些html的动画效果发现一个问题!jQuery是不支持动画背景颜色和文字颜色动画的,虽然能修改css属性来实现修改背景颜色,但是我想要的效果是动画效果!于是乎我在网络间游荡中获得了一个简单的处理方案!">
+<meta property="og:updated_time" content="2016-02-26T09:06:37.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css背景动画的实现">
+<meta name="twitter:description" content="最近写了一下按想法写了一些html的动画效果发现一个问题!jQuery是不支持动画背景颜色和文字颜色动画的,虽然能修改css属性来实现修改背景颜色,但是我想要的效果是动画效果!于是乎我在网络间游荡中获得了一个简单的处理方案!">
+  
+    <link rel="alternative" href="/atom.xml" title="Kim Huang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Kim Huang</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">创意源于自由!</p>
+        
+        
+        <form><input type="text" class="search" placeholder=" Search..."></form>
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/daohang/">网站导航</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:admin@wjl8.cn" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/" title="GitHub"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="http://wpa.qq.com/msgrd?V=3&uin=282658460&Menu=yes" title="QQ"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Mrakdown/" style="font-size: 10px;">Mrakdown</a> <a href="/tags/Yelee/" style="font-size: 10px;">Yelee</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitcafe/" style="font-size: 10px;">gitcafe</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 15.71px;">hexo</a> <a href="/tags/html/" style="font-size: 18.57px;">html</a> <a href="/tags/js/" style="font-size: 11.43px;">js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/web技术/" style="font-size: 10px;">web技术</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/介绍/" style="font-size: 10px;">介绍</a> <a href="/tags/代码/" style="font-size: 10px;">代码</a> <a href="/tags/修改/" style="font-size: 10px;">修改</a> <a href="/tags/创意/" style="font-size: 10px;">创意</a> <a href="/tags/前段/" style="font-size: 14.29px;">前段</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/吐槽/" style="font-size: 14.29px;">吐槽</a> <a href="/tags/吐糟/" style="font-size: 10px;">吐糟</a> <a href="/tags/工作室/" style="font-size: 10px;">工作室</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/情感/" style="font-size: 12.86px;">情感</a> <a href="/tags/感悟/" style="font-size: 10px;">感悟</a> <a href="/tags/手机场景/" style="font-size: 10px;">手机场景</a> <a href="/tags/技术/" style="font-size: 17.14px;">技术</a> <a href="/tags/抒情/" style="font-size: 12.86px;">抒情</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/测试/" style="font-size: 11.43px;">测试</a> <a href="/tags/照片/" style="font-size: 10px;">照片</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/经验/" style="font-size: 10px;">经验</a> <a href="/tags/网页/" style="font-size: 10px;">网页</a> <a href="/tags/记事/" style="font-size: 10px;">记事</a> <a href="/tags/设想/" style="font-size: 10px;">设想</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/链接/" style="font-size: 10px;">链接</a> <a href="/tags/雨天/" style="font-size: 10px;">雨天</a> <a href="/tags/首次/" style="font-size: 10px;">首次</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.youge8.com/">KimStudio</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://bbs.wjl8.cn:100/">微俱乐吧</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.youge8.com/zxbj">Kim布局工具</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">喜欢前段的随心随意,酷爱后端的逻辑思维!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Kim Huang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/img/avatar.png" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Kim Huang</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">创意源于自由!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/daohang/">网站导航</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:admin@wjl8.cn" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/" title="GitHub"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="http://wpa.qq.com/msgrd?V=3&uin=282658460&Menu=yes" title="QQ"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-css背景动画的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/26/css背景动画的实现/" class="article-date">
+      <time datetime="2016-02-26T08:50:06.000Z" itemprop="datePublished">2016-02-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css背景动画的实现
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web技术/">web技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>最近写了一下按想法写了一些html的动画效果发现一个问题!<br>jQuery是不支持动画背景颜色和文字颜色<code>动画</code>的,虽然能修改css属性来实现修改背景颜色,但是我想要的效果是动画效果!<br>于是乎我在网络间游荡中获得了一个简单的处理方案!<br><a id="more"></a><br>方案到处有在哪找到的忘记了,我都是这样找就找到没必要去记得出自谁手,如果您发现是您的作品,那么我在这里先非常感谢了!<br>如果在我这里拿的原创就随便啦,反正我不看也不用谢,分享快乐,对你有用即可!<br>这个端代码是高人从<code>jqurey UI</code>里面提取的一段可以用作背景颜色动画的代码个人非常喜欢,于是也用上了自己的站点,虽然做得还有些土,以后有新想法再改吧!<br>废话不多说上代码<br>复制保存成JS文件即可!<br>原名叫</p>
+<blockquote>
+<p>jquery.colorAnimations.js<br>最好自己拿去压缩一下,跟方便引入!至于color的动画方法还在找,找到了再分享!</p>
+</blockquote>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">;(function(jQuery)&#123;</span><br><span class="line"></span><br><span class="line">	// 所有颜色样式</span><br><span class="line">	jQuery.each(['backgroundColor', 'borderBottomColor', 'borderLeftColor', 'borderRightColor', 'borderTopColor', 'color', 'outlineColor'], function(i,attr)&#123;</span><br><span class="line">		jQuery.fx.step[attr] = function(fx)&#123;</span><br><span class="line">			<span class="keyword">if</span> ( fx.state == <span class="number">0</span> ) &#123;</span><br><span class="line">				fx.start = getColor( fx.elem, attr );</span><br><span class="line">				fx.<span class="keyword">end</span> = getRGB( fx.<span class="keyword">end</span> );</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			fx.elem.style[attr] = <span class="string">"rgb("</span> + [</span><br><span class="line">				<span class="type">Math</span>.max(<span class="type">Math</span>.min( parseInt((fx.pos * (fx.<span class="keyword">end</span>[<span class="number">0</span>] - fx.start[<span class="number">0</span>])) + fx.start[<span class="number">0</span>]), <span class="number">255</span>), <span class="number">0</span>),</span><br><span class="line">				<span class="type">Math</span>.max(<span class="type">Math</span>.min( parseInt((fx.pos * (fx.<span class="keyword">end</span>[<span class="number">1</span>] - fx.start[<span class="number">1</span>])) + fx.start[<span class="number">1</span>]), <span class="number">255</span>), <span class="number">0</span>),</span><br><span class="line">				<span class="type">Math</span>.max(<span class="type">Math</span>.min( parseInt((fx.pos * (fx.<span class="keyword">end</span>[<span class="number">2</span>] - fx.start[<span class="number">2</span>])) + fx.start[<span class="number">2</span>]), <span class="number">255</span>), <span class="number">0</span>)</span><br><span class="line">			].join(<span class="string">","</span>) + <span class="string">")"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	// <span class="type">Color</span> <span class="type">Conversion</span> functions <span class="keyword">from</span> highlightFade</span><br><span class="line">	// <span class="type">By</span> <span class="type">Blair</span> <span class="type">Mitchelmore</span></span><br><span class="line">	// http://jquery.offput.ca/highlightFade/</span><br><span class="line">    //一个<span class="type">JavaScript</span> 数组，其中包含 <span class="number">0</span>和<span class="number">255</span>之间的三个数字， (ie [<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>]).</span><br><span class="line">    //<span class="type">An</span> <span class="type">RGB</span> 'function call syntax' <span class="type">string</span>. either interger <span class="keyword">or</span> percentage <span class="type">float</span> form. (ie rgb(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>) <span class="keyword">or</span> rgb(<span class="number">100</span>%,<span class="number">100</span>%,<span class="number">100</span>%))</span><br><span class="line">    //<span class="type">An</span> <span class="type">RGB</span> hex value. <span class="type">Either</span> short <span class="keyword">or</span> long form. (ie <span class="comment">#FFF or #FFFFFF)</span></span><br><span class="line">    //A <span class="type">W3C</span> standard colour name <span class="type">string</span> <span class="keyword">as</span> defined at <span class="type">W3Schools</span>. (ie 'white', 'blue', 'red', 'black', et. al)</span><br><span class="line"></span><br><span class="line">	// <span class="type">Parse</span> strings looking <span class="keyword">for</span> color tuples [<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>]</span><br><span class="line">	function getRGB(color) &#123;</span><br><span class="line">		<span class="keyword">var</span> <span class="literal">result</span>;</span><br><span class="line"></span><br><span class="line">		// 一个<span class="type">JavaScript</span> 数组，其中包含 <span class="number">0</span>和<span class="number">255</span>之间的三个数字，例如： [<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>]</span><br><span class="line">		<span class="keyword">if</span> ( color &amp;&amp; color.constructor == <span class="type">Array</span> &amp;&amp; color.length == <span class="number">3</span> )</span><br><span class="line">			<span class="keyword">return</span> color;</span><br><span class="line"></span><br><span class="line">		// <span class="type">Look</span> <span class="keyword">for</span> rgb(num,num,num)</span><br><span class="line">		<span class="keyword">if</span> (<span class="literal">result</span> = /rgb\(\s*([<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">1</span>,<span class="number">3</span>&#125;)\s*,\s*([<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">1</span>,<span class="number">3</span>&#125;)\s*,\s*([<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">1</span>,<span class="number">3</span>&#125;)\s*\)/.exec(color))</span><br><span class="line">			<span class="keyword">return</span> [parseInt(<span class="literal">result</span>[<span class="number">1</span>]), parseInt(<span class="literal">result</span>[<span class="number">2</span>]), parseInt(<span class="literal">result</span>[<span class="number">3</span>])];</span><br><span class="line"></span><br><span class="line">		// <span class="type">Look</span> <span class="keyword">for</span> rgb(num%,num%,num%)</span><br><span class="line">		<span class="keyword">if</span> (<span class="literal">result</span> = /rgb\(\s*([<span class="number">0</span>-<span class="number">9</span>]+(?:\.[<span class="number">0</span>-<span class="number">9</span>]+)?)\%\s*,\s*([<span class="number">0</span>-<span class="number">9</span>]+(?:\.[<span class="number">0</span>-<span class="number">9</span>]+)?)\%\s*,\s*([<span class="number">0</span>-<span class="number">9</span>]+(?:\.[<span class="number">0</span>-<span class="number">9</span>]+)?)\%\s*\)/.exec(color))</span><br><span class="line">			<span class="keyword">return</span> [parseFloat(<span class="literal">result</span>[<span class="number">1</span>])*<span class="number">2</span>.<span class="number">55</span>, parseFloat(<span class="literal">result</span>[<span class="number">2</span>])*<span class="number">2</span>.<span class="number">55</span>, parseFloat(<span class="literal">result</span>[<span class="number">3</span>])*<span class="number">2</span>.<span class="number">55</span>];</span><br><span class="line"></span><br><span class="line">		// <span class="type">Look</span> <span class="keyword">for</span> <span class="comment">#a0b1c2</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="literal">result</span> = /<span class="comment">#([a-fA-F0-9]&#123;2&#125;)([a-fA-F0-9]&#123;2&#125;)([a-fA-F0-9]&#123;2&#125;)/.exec(color))</span></span><br><span class="line">			<span class="keyword">return</span> [parseInt(<span class="literal">result</span>[<span class="number">1</span>],<span class="number">16</span>), parseInt(<span class="literal">result</span>[<span class="number">2</span>],<span class="number">16</span>), parseInt(<span class="literal">result</span>[<span class="number">3</span>],<span class="number">16</span>)];</span><br><span class="line"></span><br><span class="line">		// <span class="type">Look</span> <span class="keyword">for</span> <span class="comment">#fff</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="literal">result</span> = /<span class="comment">#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])/.exec(color))</span></span><br><span class="line">			<span class="keyword">return</span> [parseInt(<span class="literal">result</span>[<span class="number">1</span>]+<span class="literal">result</span>[<span class="number">1</span>],<span class="number">16</span>), parseInt(<span class="literal">result</span>[<span class="number">2</span>]+<span class="literal">result</span>[<span class="number">2</span>],<span class="number">16</span>), parseInt(<span class="literal">result</span>[<span class="number">3</span>]+<span class="literal">result</span>[<span class="number">3</span>],<span class="number">16</span>)];</span><br><span class="line"></span><br><span class="line">		// <span class="type">Otherwise</span>, we're most likely dealing <span class="keyword">with</span> a named color</span><br><span class="line">		<span class="keyword">return</span> colors[jQuery.trim(color).toLowerCase()];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function getColor(elem, attr) &#123;</span><br><span class="line">		<span class="keyword">var</span> color;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">do</span> &#123;</span><br><span class="line">			color = jQuery.curCSS(elem, attr);</span><br><span class="line"></span><br><span class="line">			// <span class="type">Keep</span> going until we find an element that has color, <span class="keyword">or</span> we hit the body</span><br><span class="line">			<span class="keyword">if</span> ( color != '' &amp;&amp; color != 'transparent' || jQuery.nodeName(elem, <span class="string">"body"</span>) )</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">			attr = <span class="string">"backgroundColor"</span>;</span><br><span class="line">		&#125; <span class="keyword">while</span> ( elem = elem.parentNode );</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> getRGB(color);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	// <span class="type">Some</span> named colors to work <span class="keyword">with</span></span><br><span class="line">	// <span class="type">From</span> <span class="type">Interface</span> by <span class="type">Stefan</span> <span class="type">Petre</span></span><br><span class="line">	// http://<span class="keyword">interface</span>.eyecon.ro/</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> colors = &#123;</span><br><span class="line">		aqua:[<span class="number">0</span>,<span class="number">255</span>,<span class="number">255</span>],</span><br><span class="line">		azure:[<span class="number">240</span>,<span class="number">255</span>,<span class="number">255</span>],</span><br><span class="line">		beige:[<span class="number">245</span>,<span class="number">245</span>,<span class="number">220</span>],</span><br><span class="line">		black:[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">		blue:[<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>],</span><br><span class="line">		brown:[<span class="number">165</span>,<span class="number">42</span>,<span class="number">42</span>],</span><br><span class="line">		cyan:[<span class="number">0</span>,<span class="number">255</span>,<span class="number">255</span>],</span><br><span class="line">		darkblue:[<span class="number">0</span>,<span class="number">0</span>,<span class="number">139</span>],</span><br><span class="line">		darkcyan:[<span class="number">0</span>,<span class="number">139</span>,<span class="number">139</span>],</span><br><span class="line">		darkgrey:[<span class="number">169</span>,<span class="number">169</span>,<span class="number">169</span>],</span><br><span class="line">		darkgreen:[<span class="number">0</span>,<span class="number">100</span>,<span class="number">0</span>],</span><br><span class="line">		darkkhaki:[<span class="number">189</span>,<span class="number">183</span>,<span class="number">107</span>],</span><br><span class="line">		darkmagenta:[<span class="number">139</span>,<span class="number">0</span>,<span class="number">139</span>],</span><br><span class="line">		darkolivegreen:[<span class="number">85</span>,<span class="number">107</span>,<span class="number">47</span>],</span><br><span class="line">		darkorange:[<span class="number">255</span>,<span class="number">140</span>,<span class="number">0</span>],</span><br><span class="line">		darkorchid:[<span class="number">153</span>,<span class="number">50</span>,<span class="number">204</span>],</span><br><span class="line">		darkred:[<span class="number">139</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">		darksalmon:[<span class="number">233</span>,<span class="number">150</span>,<span class="number">122</span>],</span><br><span class="line">		darkviolet:[<span class="number">148</span>,<span class="number">0</span>,<span class="number">211</span>],</span><br><span class="line">		fuchsia:[<span class="number">255</span>,<span class="number">0</span>,<span class="number">255</span>],</span><br><span class="line">		gold:[<span class="number">255</span>,<span class="number">215</span>,<span class="number">0</span>],</span><br><span class="line">		green:[<span class="number">0</span>,<span class="number">128</span>,<span class="number">0</span>],</span><br><span class="line">		indigo:[<span class="number">75</span>,<span class="number">0</span>,<span class="number">130</span>],</span><br><span class="line">		khaki:[<span class="number">240</span>,<span class="number">230</span>,<span class="number">140</span>],</span><br><span class="line">		lightblue:[<span class="number">173</span>,<span class="number">216</span>,<span class="number">230</span>],</span><br><span class="line">		lightcyan:[<span class="number">224</span>,<span class="number">255</span>,<span class="number">255</span>],</span><br><span class="line">		lightgreen:[<span class="number">144</span>,<span class="number">238</span>,<span class="number">144</span>],</span><br><span class="line">		lightgrey:[<span class="number">211</span>,<span class="number">211</span>,<span class="number">211</span>],</span><br><span class="line">		lightpink:[<span class="number">255</span>,<span class="number">182</span>,<span class="number">193</span>],</span><br><span class="line">		lightyellow:[<span class="number">255</span>,<span class="number">255</span>,<span class="number">224</span>],</span><br><span class="line">		lime:[<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>],</span><br><span class="line">		magenta:[<span class="number">255</span>,<span class="number">0</span>,<span class="number">255</span>],</span><br><span class="line">		maroon:[<span class="number">128</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">		navy:[<span class="number">0</span>,<span class="number">0</span>,<span class="number">128</span>],</span><br><span class="line">		olive:[<span class="number">128</span>,<span class="number">128</span>,<span class="number">0</span>],</span><br><span class="line">		orange:[<span class="number">255</span>,<span class="number">165</span>,<span class="number">0</span>],</span><br><span class="line">		pink:[<span class="number">255</span>,<span class="number">192</span>,<span class="number">203</span>],</span><br><span class="line">		purple:[<span class="number">128</span>,<span class="number">0</span>,<span class="number">128</span>],</span><br><span class="line">		violet:[<span class="number">128</span>,<span class="number">0</span>,<span class="number">128</span>],</span><br><span class="line">		red:[<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">		silver:[<span class="number">192</span>,<span class="number">192</span>,<span class="number">192</span>],</span><br><span class="line">		white:[<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>],</span><br><span class="line">		yellow:[<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>]</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/02/26/css背景动画的实现/">css背景动画的实现</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Kim Huang 的个人博客">Kim Huang</a></p>
+        <p><span>发布时间:</span>2016年02月26日 - 16时50分</p>
+        <p><span>最后更新:</span>2016年02月26日 - 17时06分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/26/css背景动画的实现/" title="css背景动画的实现">http://blog.wjl8.cn/2016/02/26/css背景动画的实现/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.wjl8.cn/2016/02/26/css背景动画的实现/　　作者: Kim Huang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/02/14/开放手机场景网站为亲朋好友服务/">
+                    开放手机场景网站为亲朋好友服务
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/02/26/css背景动画的实现/" data-title="css背景动画的实现" data-url="http://blog.wjl8.cn/2016/02/26/css背景动画的实现/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"kimhuang"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://blog.wjl8.cn/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/02/14/开放手机场景网站为亲朋好友服务/" title="下一篇: 开放手机场景网站为亲朋好友服务">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/css背景动画的实现/">css背景动画的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/开放手机场景网站为亲朋好友服务/">开放手机场景网站为亲朋好友服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/13/2016新年快乐/">2016新年快乐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/31/当与很多麻烦事摆在面前/">当与很多麻烦事摆在面前时候</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/程序员的悲催/">程序员眼中的程序猿</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/远程字体库调用测试/">远程字体库调用测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/一个视频介绍的测试/">一个视频介绍的测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/将网页简单融入到手机应用/">网页与手机浏览器的设想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/23/虽然好用但是抽风gitcafe/">虽然好用但是抽风gitcafe</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/22/关于Git的一些命令/">关于Git的一些命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/21/hexo安装指令/">hexo安装指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/21/Kim站点快捷导航/">Kim站点快捷导航</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/关于 Yelee主题的一些修改/">关于 Yelee主题的一些修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/又是雨天伴思念/">又是雨天伴思念</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/再谈hexo的备份问题/">再谈hexo的备份问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/Markdown的一点语法/">Markdown的一点语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/19/win10下创建hxeo环境/">测试了win10下创建hxeo环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/18/跨平台网页用Bootstrap还是jQuery-Mobile/">跨平台网页用Bootstrap还是jQuery Mobile</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/17/一个不可否认的事实/">一个不可否认的事实</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/16/关于武侠类站点的一些设想/">关于武侠类站点的一些设想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/15/社区与BLOG与工作室/">社区与blog与studio网站的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/15/雨总是在你想它的时候它也想你/">雨和男人!</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/痛恨中国局域网/">痛恨中国局域网</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/开篇第一章/">开篇第一章</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Kim Huang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Kim当前使用的主题">Yelee</a> by Kim Huang
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
