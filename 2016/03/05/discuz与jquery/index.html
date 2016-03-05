@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://blog.wjl8.cn/2016/03/05/discuz与jquery/index.html">
 <meta property="og:site_name" content="Kim Huang's Blog">
 <meta property="og:description" content="众所周知discuz的common.js与jQuery不兼容,也就是说.他们共同占用了$这个小符号.我想问的是discuz你们何必要和jQuery对着干呢,当然做模板开发的人基本上都知道解决的办法!冲突造成的问题不止是一点点,除了DIY功能,还有很多的其他功能都会起冲突!">
-<meta property="og:updated_time" content="2016-03-05T02:44:14.168Z">
+<meta property="og:updated_time" content="2016-03-05T02:46:45.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="discuz与jquery">
 <meta name="twitter:description" content="众所周知discuz的common.js与jQuery不兼容,也就是说.他们共同占用了$这个小符号.我想问的是discuz你们何必要和jQuery对着干呢,当然做模板开发的人基本上都知道解决的办法!冲突造成的问题不止是一点点,除了DIY功能,还有很多的其他功能都会起冲突!">
@@ -268,8 +268,9 @@
 <p>那么我们来看一下解决的办法:</p>
 <p>#网络上的办法一替换特效JS文件中的$符号</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span></span><br><span class="line">替换为</span><br><span class="line">jQuery(</span><br></pre></td></tr></table></figure>
-<p>#对于这种不清不楚的网络解释本人非常反感<br>换的方法是没有错的思路也是正确的问题是很多人换了都解决不了问题<br>我就拿3.2版本来说 我是这样做的<br>在<code>common</code>文件夹下面找到<code>header_common.htm</code><br>然后在这个文件夹下面找到<br>    <script type="text/javascript" src="{$_G[setting][jspath]}common.js?{VERHASH}"></script></p>
-<p>这个句代码, 学前端的人一般就能看出来这就是加载一个js的标签语句<br>然后我们在其后面加入两行代码<br>    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script><br>    <script type="text/javascript">var jq = jQuery.noConflict();</script><br>这两行代码其中一个是公共库的<code>jquery</code>,另外一个的作用是把<code>$</code>符号让给<code>discuz</code>用<br>然后我们就可以替换的方式使用<code>jQuery()</code>来代替<code>$()</code> 百度上面的方法就能发挥作用了<br>那么问题来了 有些个人插件直接就是完全依赖<code>jQuery</code>来写随意的,这些就要注意了!不一定能够全部起到效果!<br>但是起码能解决大部分<code>jQuery</code>插件问题以及编写冲突的问题!</p>
+<p>#对于这种不清不楚的网络解释本人非常反感<br>换的方法是没有错的思路也是正确的问题是很多人换了都解决不了问题<br>我就拿3.2版本来说 我是这样做的<br>在<code>common</code>文件夹下面找到<code>header_common.htm</code><br>然后在这个文件夹下面找到<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&#123;$_G[setting][jspath]&#125;common.js?&#123;VERHASH&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这个句代码, 学前端的人一般就能看出来这就是加载一个js的标签语句<br>然后我们在其后面加入两行代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="actionscript"><span class="keyword">var</span> jq = jQuery.noConflict();</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这两行代码其中一个是公共库的<code>jquery</code>,另外一个的作用是把<code>$</code>符号让给<code>discuz</code>用<br>然后我们就可以替换的方式使用<code>jQuery()</code>来代替<code>$()</code> 百度上面的方法就能发挥作用了<br>那么问题来了 有些个人插件直接就是完全依赖<code>jQuery</code>来写随意的,这些就要注意了!不一定能够全部起到效果!<br>但是起码能解决大部分<code>jQuery</code>插件问题以及编写冲突的问题!</p>
 
       
     </div>
@@ -281,7 +282,7 @@
         <p><span>本文标题:</span><a href="/2016/03/05/discuz与jquery/">discuz与jquery</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Kim Huang 的个人博客">Kim Huang</a></p>
         <p><span>发布时间:</span>2016年03月05日 - 10时02分</p>
-        <p><span>最后更新:</span>2016年03月05日 - 10时44分</p>
+        <p><span>最后更新:</span>2016年03月05日 - 10时46分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/05/discuz与jquery/" title="discuz与jquery">http://blog.wjl8.cn/2016/03/05/discuz与jquery/</a>
             <span class="copy-path" data-clipboard-text="原文: http://blog.wjl8.cn/2016/03/05/discuz与jquery/　　作者: Kim Huang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
