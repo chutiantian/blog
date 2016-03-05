@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo安装指令 | Kim Huang&#39;s Blog</title>
+  <title>discuz与jquery | Kim Huang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在安装hexo成功之前,觉得这是最不靠谱的静态文章生成系统,它官网还是说轻轻松松架设,其实理解了算是很轻松就可以架设环境的,但是如果不理解观看官网的文档,我想也不是很好明白的!好开看一下官方文档是怎么写的:">
+  <meta name="description" content="众所周知discuz的common.js与jQuery不兼容,也就是说.他们共同占用了$这个小符号.我想问的是discuz你们何必要和jQuery对着干呢,当然做模板开发的人基本上都知道解决的办法!冲突造成的问题不止是一点点,除了DIY功能,还有很多的其他功能都会起冲突!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo安装指令">
-<meta property="og:url" content="http://blog.wjl8.cn/2016/01/21/hexo安装指令/index.html">
+<meta property="og:title" content="discuz与jquery">
+<meta property="og:url" content="http://blog.wjl8.cn/2016/03/05/discuz与jquery/index.html">
 <meta property="og:site_name" content="Kim Huang's Blog">
-<meta property="og:description" content="在安装hexo成功之前,觉得这是最不靠谱的静态文章生成系统,它官网还是说轻轻松松架设,其实理解了算是很轻松就可以架设环境的,但是如果不理解观看官网的文档,我想也不是很好明白的!好开看一下官方文档是怎么写的:">
-<meta property="og:updated_time" content="2016-01-22T11:43:26.000Z">
+<meta property="og:description" content="众所周知discuz的common.js与jQuery不兼容,也就是说.他们共同占用了$这个小符号.我想问的是discuz你们何必要和jQuery对着干呢,当然做模板开发的人基本上都知道解决的办法!冲突造成的问题不止是一点点,除了DIY功能,还有很多的其他功能都会起冲突!">
+<meta property="og:updated_time" content="2016-03-05T02:44:14.168Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo安装指令">
-<meta name="twitter:description" content="在安装hexo成功之前,觉得这是最不靠谱的静态文章生成系统,它官网还是说轻轻松松架设,其实理解了算是很轻松就可以架设环境的,但是如果不理解观看官网的文档,我想也不是很好明白的!好开看一下官方文档是怎么写的:">
+<meta name="twitter:title" content="discuz与jquery">
+<meta name="twitter:description" content="众所周知discuz的common.js与jQuery不兼容,也就是说.他们共同占用了$这个小符号.我想问的是discuz你们何必要和jQuery对着干呢,当然做模板开发的人基本上都知道解决的办法!冲突造成的问题不止是一点点,除了DIY功能,还有很多的其他功能都会起冲突!">
   
     <link rel="alternative" href="/atom.xml" title="Kim Huang&#39;s Blog" type="application/atom+xml">
   
@@ -226,11 +226,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hexo安装指令" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-discuz与jquery" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/21/hexo安装指令/" class="article-date">
-      <time datetime="2016-01-21T10:06:09.000Z" itemprop="datePublished">2016-01-21</time>
+      <a href="/2016/03/05/discuz与jquery/" class="article-date">
+      <time datetime="2016-03-05T02:02:07.000Z" itemprop="datePublished">2016-03-05</time>
 </a>
     </div>
   
@@ -243,7 +243,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo安装指令
+      discuz与jquery
     </h1>
   
 
@@ -254,7 +254,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/discuz/">discuz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -264,25 +264,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>在安装hexo成功之前,觉得这是最不靠谱的静态文章生成系统,它官网还是说轻轻松松架设,其实理解了算是很轻松就可以架设环境的,但是如果不理解观看官网的文档,我想也不是很好明白的!<br>好开看一下官方文档是怎么写的:<br><a id="more"></a></p>
-<h1 id="u5EFA_u7AD9"><a href="#u5EFA_u7AD9" class="headerlink" title="建站"></a>建站</h1><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo init &lt;folder&gt;</span><br><span class="line"><span class="variable">$ </span>cd &lt;folder&gt;</span><br><span class="line"><span class="variable">$ </span>npm install</span><br></pre></td></tr></table></figure>
-<p>我开始的时候也看不大明白是什么意思,尤其是这个<code>&lt;folder&gt;</code>字符误导人<br>翻译一下folder是文件夹的意思<br>意思是说 在<code>init</code>后面可以填写上文件名字 </p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo init 文件夹名字</span><br></pre></td></tr></table></figure>
-<p>当然也没有说明安装hexo怎么安装<br>安装其实非常简单 随意目录下面启动 git命令行<br>输入</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo-cli</span></span><br></pre></td></tr></table></figure>
-<p>而且也没说用什么来启动这个键入命令<br>cmd系统命令行我没有试过 是因为系统命令行要去找文件的路径麻烦<br>于是我用<code>git</code>本身的命令行工具来运行上面的指令<br>git方便的是可以在如何目录下面直接右键启动命令行 而命令行所在的路径就已经设置好了<br>不用再敲键盘<br>我的方法是先建立一个用来存放hexo环境文件的文件加<br>然后在当前目录下面直接右键</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo init</span><br></pre></td></tr></table></figure>
-<p>生成必要的文件<br>然后生成所需要的环境</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-<p>当然<code>npm</code>这个是命令是再装好<code>node.js</code>后才可以使用的命令<code>cmd</code>系统命令行也是可以使用的npm命令的<br>上面的命令执行完了以后就可以用 下边的命令打开本地服务器了</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo s</span><br></pre></td></tr></table></figure>
-<p>浏览器直接输入 <a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a> 预览<br>在正式写文章之前还要设置一下</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure>
-<p>通过配置这个环境以后才可以用<code>git</code>上传静态页面代码<br>之前就是一直用hexo deploy 这个命令出错就是没有设置好环境</p>
-<pre><code>最后是上传和生成以及清除的命令
-</code></pre><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo <span class="keyword">g</span> &amp;&amp; hexo <span class="keyword">d</span> &amp;&amp; hexo clean</span><br></pre></td></tr></table></figure>
-<p>合体后的命令<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">npm <span class="operator"><span class="keyword">install</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="keyword">g</span> &amp;&amp; hexo <span class="keyword">d</span> &amp;&amp; hexo clean</span></span><br></pre></td></tr></table></figure></p>
+        <p>众所周知<code>discuz</code>的<code>common.js</code>与jQuery不兼容,也就是说.他们共同占用了<code>$</code>这个小符号.<br>我想问的是<code>discuz</code>你们何必要和jQuery对着干呢,当然做模板开发的人基本上都知道解决的办法!<br>冲突造成的问题不止是一点点,除了DIY功能,还有很多的其他功能都会起冲突!<br><a id="more"></a><br>Query是通过一个全局变量$来引用的，而<code>Discuz的common.js</code>文件加载时也占用了$。因而冲突的根源就是全局变量$。说得明白点：当<code>jQuery</code>和<code>common.js</code>共存的时候，<code>$</code>究竟是谁？<br>分析<code>jQuery</code>和<code>common.js</code>的源代码可以知道，这两个库在加载的时候都会占用$变量。因此，按照覆盖的原理，谁后加载，<code>$</code>变量就是谁。</p>
+<p>那么我们来看一下解决的办法:</p>
+<p>#网络上的办法一替换特效JS文件中的$符号</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span></span><br><span class="line">替换为</span><br><span class="line">jQuery(</span><br></pre></td></tr></table></figure>
+<p>#对于这种不清不楚的网络解释本人非常反感<br>换的方法是没有错的思路也是正确的问题是很多人换了都解决不了问题<br>我就拿3.2版本来说 我是这样做的<br>在<code>common</code>文件夹下面找到<code>header_common.htm</code><br>然后在这个文件夹下面找到<br>    <script type="text/javascript" src="{$_G[setting][jspath]}common.js?{VERHASH}"></script></p>
+<p>这个句代码, 学前端的人一般就能看出来这就是加载一个js的标签语句<br>然后我们在其后面加入两行代码<br>    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script><br>    <script type="text/javascript">var jq = jQuery.noConflict();</script><br>这两行代码其中一个是公共库的<code>jquery</code>,另外一个的作用是把<code>$</code>符号让给<code>discuz</code>用<br>然后我们就可以替换的方式使用<code>jQuery()</code>来代替<code>$()</code> 百度上面的方法就能发挥作用了<br>那么问题来了 有些个人插件直接就是完全依赖<code>jQuery</code>来写随意的,这些就要注意了!不一定能够全部起到效果!<br>但是起码能解决大部分<code>jQuery</code>插件问题以及编写冲突的问题!</p>
 
       
     </div>
@@ -291,13 +278,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/21/hexo安装指令/">hexo安装指令</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/05/discuz与jquery/">discuz与jquery</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Kim Huang 的个人博客">Kim Huang</a></p>
-        <p><span>发布时间:</span>2016年01月21日 - 18时06分</p>
-        <p><span>最后更新:</span>2016年01月22日 - 19时43分</p>
+        <p><span>发布时间:</span>2016年03月05日 - 10时02分</p>
+        <p><span>最后更新:</span>2016年03月05日 - 10时44分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/21/hexo安装指令/" title="hexo安装指令">http://blog.wjl8.cn/2016/01/21/hexo安装指令/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.wjl8.cn/2016/01/21/hexo安装指令/　　作者: Kim Huang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/05/discuz与jquery/" title="discuz与jquery">http://blog.wjl8.cn/2016/03/05/discuz与jquery/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.wjl8.cn/2016/03/05/discuz与jquery/　　作者: Kim Huang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -310,16 +297,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/22/关于Git的一些命令/">
-                    关于Git的一些命令
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/21/Kim站点快捷导航/">
-                    
+                <a href="/2016/03/03/discuz与wordpress的看法/">
+                    discuz与wordpress的看法
                 </a>
             </div>
         
@@ -330,7 +311,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5EFA_u7AD9"><span class="toc-number">1.</span> <span class="toc-text">建站</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -394,7 +375,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/21/hexo安装指令/" data-title="hexo安装指令" data-url="http://blog.wjl8.cn/2016/01/21/hexo安装指令/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/05/discuz与jquery/" data-title="discuz与jquery" data-url="http://blog.wjl8.cn/2016/03/05/discuz与jquery/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -418,15 +399,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/22/关于Git的一些命令/" title="上一篇: 关于Git的一些命令">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/21/Kim站点快捷导航/" title="下一篇: ">
+            <a href="/2016/03/03/discuz与wordpress的看法/" title="下一篇: discuz与wordpress的看法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
